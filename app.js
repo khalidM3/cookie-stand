@@ -1,4 +1,4 @@
-var hours = ['6AM', '7AM','8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM'];
+var hours = ['6AM', '7AM','8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
 //alki
 //
 //
@@ -42,10 +42,10 @@ Alki.render();
 //capitol hill
 var capitolHill = {
   //minimum customer per hour
-  minCustomerPerHour: 2,
+  minCustomerPerHour: 20,
   //maximum customer per hour
-  maxCustomerPerHour: 16,
-  averCookiePerCust: 4.6,
+  maxCustomerPerHour: 38,
+  averCookiePerCust: 2.3,
   randomCustomerPerHour :[],
   totalCookiesSoldEachHour :[],
   totalCookiesSoldEachDay:0,
@@ -79,10 +79,10 @@ capitolHill.render();
 
 var seattleCentral = {
   //minimum customer per hour
-  minCustomerPerHour: 20,
+  minCustomerPerHour: 11,
   //maximum customer per hour
   maxCustomerPerHour: 38,
-  averCookiePerCust: 2.3,
+  averCookiePerCust: 3.7,
   randomCustomerPerHour :[],
   totalCookiesSoldEachHour :[],
   totalCookiesSoldEachDay:0,
@@ -118,10 +118,10 @@ seattleCentral.render();
 
 var seaTacAir = {
   //minimum customer per hour
-  minCustomerPerHour: 20,
+  minCustomerPerHour: 3,
   //maximum customer per hour
-  maxCustomerPerHour: 38,
-  averCookiePerCust: 2.3,
+  maxCustomerPerHour: 24,
+  averCookiePerCust: 1.2,
   randomCustomerPerHour :[],
   totalCookiesSoldEachHour :[],
   totalCookiesSoldEachDay:0,
@@ -155,10 +155,10 @@ seaTacAir.render();
 //1st and pike
 var firstPike = {
   //minimum customer per hour
-  minCustomerPerHour: 20,
+  minCustomerPerHour: 23,
   //maximum customer per hour
-  maxCustomerPerHour: 38,
-  averCookiePerCust: 2.3,
+  maxCustomerPerHour: 65,
+  averCookiePerCust: 6.3,
   randomCustomerPerHour :[],
   totalCookiesSoldEachHour :[],
   totalCookiesSoldEachDay:0,
