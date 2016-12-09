@@ -9,7 +9,7 @@
 // +                                                                                      +
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                     UNIVERSAL VARIABLES
-
+//
 var storeTable = document.getElementById('StoreTable');
 var hours = ['6AM', '7AM','8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
 var allStores = [];
@@ -17,6 +17,7 @@ var ck = [];
 var storeForm = document.getElementById('StoreGenerator');
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //                        THE OBJECT CONSTRUCTER
+//
 function Store(storeName, minCustomerPerHour, maxCustomerPerHour, averCookiePerCust) {
   this.storeName = storeName;
   this.minCustomerPerHour = minCustomerPerHour;
@@ -57,8 +58,6 @@ function Store(storeName, minCustomerPerHour, maxCustomerPerHour, averCookiePerC
     trEl.appendChild(t);
 
     storeTable.appendChild(trEl);
-
-
   }
 
   this.genTotalCookies();
@@ -66,12 +65,8 @@ function Store(storeName, minCustomerPerHour, maxCustomerPerHour, averCookiePerC
 }
 //                  THE END OF OBJECT CONSTRUCTER
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  // create tr
-  // create a th, give it content, add it to tr
-  // create a th, give it content, add it to tr
-  // create a th, give it content, add it to tr
-  // add tr to the table
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                   MAKES THE TABLE HEADER
+
 function makeTableHeader() {
   var trEl = document.createElement('tr');
   var vthEl = document.createElement('th');
@@ -92,7 +87,7 @@ function makeTableHeader() {
 
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+//                      STORES ALREADY CREATED
 new Store('alki', 2, 16, 4.6);
 new Store('capitolHill', 20, 38, 2.3);
 new Store('seattleCentral', 11, 38, 3.7);
@@ -100,6 +95,8 @@ new Store('seaTacAir', 3, 24, 1.2);
 new Store('firstPike', 23, 65, 6.3);
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                 MAKES THE TABLE INNER CONTENT
+
 function makeAllStores() {
   for (var i = 0; i < allStores.length; i += 1) {
     allStores[i].render();
@@ -117,37 +114,8 @@ function makeAllStores() {
     // console.log(totalp);
   }
 }
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-function handleStoreForm(event) {
-  console.log(newStore);
-
-  event.preventDefault();
-
-  if (!event.target.storename.value || !event.target.minimum.value ||!event.target.maximum.value || !event.target.average.value) {
-    alert('Fields cannot be empty!');
-
-  } else {
-    var newStore  = new Store(event.target.storename.value, event.target.minimum.value, event.target.maximum.value, event.target.average.value);
-    storeTable.innerHTML = '';
-
-  event.target.storename.value = null;
-  event.target.minimum.value  = null;
-  event.target.maximum.value  = null;
-  event.target.average.value = null;
-
-    makeTableHeader();
-    makeAllStores();
-    makeFooter();
-  }
-}
-
-storeForm.addEventListener('submit',handleStoreForm);
-
-
-
-
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                     MAKES THE TABLE FOOTER
 
 function makeFooter() {
   var trEl = document.createElement('tr');
@@ -169,8 +137,42 @@ function makeFooter() {
   trEl.appendChild(tdElLast);
   storeTable.appendChild(trEl);
 }
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                         THE STORES EVENT LISTENER
+// listens for a submit event from the form is StoreForm and then pushes it to the
+//handleStoreForm event handler
+
+storeForm.addEventListener('submit',handleStoreForm);
 
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                 THE STORES EVENT HANDLER
+// this handles all the info from the table after the event listener recieves input
+
+function handleStoreForm(event) {
+  // this built in function prevents the browser from refreshing the page every submition
+  event.preventDefault();
+  // if the form input entries false then alert a message
+  if (!event.target.storename.value || !event.target.minimum.value ||!event.target.maximum.value || !event.target.average.value) {
+    alert('Fields cannot be empty!');
+
+  } else {
+    var newStore  = new Store(event.target.storename.value, event.target.minimum.value, event.target.maximum.value, event.target.average.value);
+    storeTable.innerHTML = ''; // clears the whole old table made at the very bottom
+    // the 'null' clears the form input boxes from the previes entry
+    event.target.storename.value = null;
+    event.target.minimum.value = null;
+    event.target.maximum.value = null;
+    event.target.average.value = null;
+    //             CALL ALL FUNCTIONS FOR THE NEW TABLE
+    //callS all functions  after clearing the old table called the first time
+    makeTableHeader();
+    makeAllStores();
+    makeFooter();
+  }
+}
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                  CALL ALL FUNCTIONS FOR THE FIRST TABLE
 makeTableHeader();
 makeAllStores();
 makeFooter();

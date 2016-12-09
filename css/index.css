@@ -1,0 +1,11 @@
+#paragraphs article {
+  float: left;
+}
+article {
+  text-align: center;
+  height: 30%;
+  width: 33%;
+}
+#paragraphs article h2 {
+  color: #008080;
+}

@@ -5,28 +5,31 @@
     <title></title>
   </head>
   <body>
-    <ul id="alki">
-      Alki
-    </ul>
+  <form id="StoreGenerator">
+    <fieldset>
+      <legend>Stores</legend>
+      <label for="storename">Store Name</label>
+      <input type="text" name="storename" >
 
-    <ul id="CapitolHill">
-      Capitol Hill
-    </ul>
+      <label for="minimum">Min</label>
+      <input name="minimum" type="text">
 
-    <ul id="SeattleCentral">
-      Seattle Central
-    </ul>
+      <label for="maximum">Max</label>
+      <input name="maximum" type="text">
 
-    <ul id="SeaTac">
-      SeaTac Airport
-    </ul>
+      <label for="average">Avg</label>
+      <input name="average" type="text">
 
-    <ul id="Pike">
-      1st and Pike
-    </ul>
+      <button type="submit">make location</button>
 
-    <script type="text/javascript" src = "app.js">
+    </fieldset>
+  </form>
+  <table id="StoreTable">
 
-    </script>
+  </table>
+  <script type="text/javascript" src="javascript/app.js">
+
+  </script>
+
   </body>
 </html>
