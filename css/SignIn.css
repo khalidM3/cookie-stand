@@ -1,0 +1,36 @@
+body {
+  background-color:
+}
+form {
+  width: 500px;
+  height:500px;
+  margin: auto;
+  background-color: #ffcccc;
+}
+fieldset {
+  border: none;
+}
+legend {
+  font-size: 50px;
+  font-family: Verdana, sans-serif;
+  text-align: center;
+  color: salmon;
+}
+
+input[type=text] {
+  width: 400px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 100%;
+  background-color: green;
+}
+input[type=button] {
+  width: 100%;
+  background-color: blue;
+}
